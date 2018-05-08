@@ -92,6 +92,31 @@ public class UsuariosDL {
         database.close();
         return objListUsuarios;
     }
+    public LinkedList getHistorial(Usuarios pUsuario){
+        Cursor lCur = database.rawQuery("SELECT peso FROM ConsultaMedica where email='" + pUsuario.getCorreoElectronico() + "'" ,null);
+
+        LinkedList objListUsuarios = new LinkedList();
+        Usuarios objUsuario;
+
+        while(lCur.moveToNext()){
+            objUsuario = new Usuarios();
+            objUsuario.setID(lCur.getInt(0));
+            objUsuario.setNombres(lCur.getString(1));
+            objUsuario.setDireccion(lCur.getString(2));
+            objUsuario.setTelefono(lCur.getString(3));
+            objUsuario.setFechaNacimiento(lCur.getString(4));
+            objUsuario.setCorreoElectronico(lCur.getString(5));
+            objUsuario.setUsuario(lCur.getString(6));
+            objUsuario.setPassword(lCur.getString(7));
+            objUsuario.setActivo(lCur.getInt(8));
+            objListUsuarios.add(objUsuario);
+        }
+        database.close();
+        return objListUsuarios;
+    }
+
+
+
 
  /*   public int actualizarPassword(String password,Usuarios pUsuario){
         database = openHelper.getWritableDatabase();

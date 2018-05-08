@@ -57,6 +57,13 @@ private ActionBarDrawerToggle nToggle;
         if (id == R.id.opc_nueva_cita){
             Toast.makeText(getApplicationContext(),"NUEVA CITA",Toast.LENGTH_LONG).show();
         }
+        //return true;
+         if(id == R.id.opc_historial){
+            Intent objHistorialClinico = new Intent(getApplicationContext(), historialClinico.class);
+            startActivity(objHistorialClinico);
+             Toast.makeText(getApplicationContext(),"Bienvenido a su Historial clinico",Toast.LENGTH_LONG).show();
+
+        }
         return true;
     }
 }
