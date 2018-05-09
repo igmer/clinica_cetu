@@ -18,7 +18,7 @@ public class ClinicaDB extends SQLiteOpenHelper{
     String sqlCreateTableUsuarios = "Create Table Usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT,"
             + "nombre TEXT, direccion TEXT, telefono TEXT,FechaNac DATETIME DEFAULT CURRENT_TIMESTAM, email TEXT, usuario TEXT, password TEXT, activo INTEGER)";
 
-    String sqlCretaeConsultaMedica="create table consultaMedica(id INTEGER PRIMARY KEY AUTOINCREMENT, idCita integer NOT NULL, peso DOUBLE, talla DOUBLE, diagnostico TEXT, tratamiento TEXT)";
+    String sqlCretaeConsultaMedica="create table consultaMedica (id INTEGER PRIMARY KEY AUTOINCREMENT, idCita integer NOT NULL, peso DOUBLE, talla DOUBLE, diagnostico TEXT, tratamiento TEXT)";
 
 
     public ClinicaDB(Context context) {
@@ -49,6 +49,8 @@ public class ClinicaDB extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO Usuarios VALUES (1,'','','','1998-01-01 10:00:00','albertolemus87@gmai.com','elemus','123',1)");
         db.execSQL("INSERT INTO Usuarios VALUES (2,'','','','1998-01-01 10:00:00','arcana_87@hotmail.com','juan','1234x',1)");
         db.execSQL("INSERT INTO Usuarios VALUES (4,'','','','1998-01-01 10:00:00','aguardado@nexuserp.coom','carlos','456',1)");
+        db.execSQL("INSERT INTO consultaMedica VALUES (1,1,3.1,10.3,'Diarrea','tapacul')");
+
 
 
     }
