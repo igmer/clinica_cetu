@@ -26,6 +26,7 @@ ClinicaDB data;
         btnIngresar=(Button) findViewById(R.id.btnIngresar);
         btnSalir=(Button) findViewById(R.id.btnSalir);
 
+
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
