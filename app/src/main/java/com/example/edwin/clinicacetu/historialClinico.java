@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +27,14 @@ public class historialClinico extends AppCompatActivity {
         cargarListado();
 
     }
+
     private void cargarListado(){
         listado = listaPersonas();
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1,listado);
-        lwHistoral.setAdapter(adapter);
+        MyAdapter myAdapter = new MyAdapter(getApplicationContext(),R.layout.list_item,listado);
+        lwHistoral.setAdapter(myAdapter);
+
+        //ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1,listado);
+        //lwHistoral.setAdapter(adapter);
 
     }
 
@@ -46,41 +51,11 @@ public class historialClinico extends AppCompatActivity {
             }while(c.moveToNext());
         }
         db.close();
+
         return datos;
 
 
     }
-    public class MyAdapter extends BaseAdapter{
-        private Context context;
-        private  int layout;
-        private List<String> names;
-
-        public MyAdapter(Context context, int layout, List<String> names){
 
 
-        }
-
-        @Override
-        public int getCount() {
-            return this.names.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return this.names.get(position);
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return i;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup viewGroup) {
-            View v = convertView;
-            LayoutInflater layoutInflater = LayoutInflater.from(getApplicationContext());
-            v= layoutInflater.inflate(R.layout.list_item, names);
-            return ;
-        }
-    }
 }

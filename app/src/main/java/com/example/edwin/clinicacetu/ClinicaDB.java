@@ -50,6 +50,7 @@ public class ClinicaDB extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO Usuarios VALUES (2,'','','','1998-01-01 10:00:00','arcana_87@hotmail.com','juan','1234x',1)");
         db.execSQL("INSERT INTO Usuarios VALUES (4,'','','','1998-01-01 10:00:00','aguardado@nexuserp.coom','carlos','456',1)");
         db.execSQL("INSERT INTO consultaMedica VALUES (1,1,3.1,10.3,'Diarrea','tapacul')");
+        db.execSQL("INSERT INTO consultaMedica VALUES (2,1,3.1,10.3,'Diarrea','tapacul')");
 
 
 
